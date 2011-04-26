@@ -15,7 +15,6 @@ class leave_feedback(View):
             feedback = form.save(commit=False)
             feedback.user = request.user
             feedback.save()
-            request.user.message_set.create(message="Your feedback has been saved successfully.")
             
             result = {"success":True,"message":"Thank You"}
         return HttpResponse(simplejson.dumps(result), mimetype='application/json') 

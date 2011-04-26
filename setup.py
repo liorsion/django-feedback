@@ -4,8 +4,8 @@ setup(
     name='django-feedback',
     version=__import__('feedback').__version__,
     description='Basic Django Feedback',
-    author='Luke Hutscal',
-    author_email='luke@creaturecreative.com',
+    author='Lior Sion', #Luke Hutscal
+    author_email='lior.sion@gmail.com',
     url='http://github.com/girasquid/django-feedback/',
     packages=find_packages(),
     classifiers=[

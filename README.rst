@@ -2,8 +2,10 @@
 django-feedback
 ===============
 
-Django Feedback is a simple Django application that makes it trivialto start accepting user feedback 
+Django Feedback is a simple Django application that makes it trivial to start accepting user feedback 
 from authenticated users within your Django project.
+
+This is a project based on work done by Luke Hutscal, improved to support Ajax and dynamic feedback.
 
 Installation
 ============
