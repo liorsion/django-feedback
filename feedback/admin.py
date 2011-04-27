@@ -7,13 +7,17 @@ from feedback.models import Feedback
 
 class FeedbackAdmin(admin.ModelAdmin):
     
-    def view(self, obj):
-        return "<a href='%s'>View</a>" % obj.get_absolute_url()
-    view.allow_tags = True
+    model = Feedback
+    change_form_template = "feedback/view_feedback.html"
     
     list_display = ['user', 'message', 'time', 'type', 'view']
     search_fields = ['user', 'message']
     list_filter = ['type', 'time']
+
+    def view(self, obj):
+        return "<a href='%s'>View</a>" % obj.get_absolute_url()
+    
+    view.allow_tags = True
     
     def get_urls(self):
         urls = super(FeedbackAdmin, self).get_urls()
@@ -23,9 +27,7 @@ class FeedbackAdmin(admin.ModelAdmin):
         return my_urls + urls
         
     def view_feedback(self, request, feedback_id):
-        feedback = get_object_or_404(Feedback, id=feedback_id)
-        return render_to_response('feedback/view_feedback.html',
-            {'feedback': feedback}, context_instance=RequestContext(request))
+        return self.change_view(request, feedback_id)
 
 admin.site.register(Feedback, FeedbackAdmin)
 
