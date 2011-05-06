@@ -30,7 +30,7 @@ class FeedbackAdmin(admin.ModelAdmin):
     def view_feedback(self, request, feedback_id):
         return self.change_view(request, feedback_id)
     
-    def mark_fixed(modeladmin, request, queryset):
+    def mark_fixed(self,modeladmin, request, queryset):
         rows_updated = queryset.update(status='F')
         if rows_updated == 1:
             message_bit = "1 story was"
